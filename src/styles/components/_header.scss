@@ -1,0 +1,118 @@
+header {
+    @include darkBackground;
+  }
+  
+  .navigation {
+    background-color: $brown-light;
+  
+    &-btn {
+      border: green 10px double;
+  
+      &:hover {
+        color: red;
+      }
+      &:focus {
+        color: peru;
+      }
+    }
+  }
+  
+  .container {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    height: 300px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  
+    display: flex;
+    justify-content: space-around;
+    color: red;
+  
+    &-element {
+      background-color: $brown-light;
+  
+      &__round {
+        align-self: flex-start;
+        border-radius: 50%;
+        background-color: peru;
+      }
+  
+      &__square {
+        align-self: flex-end;
+        flex-grow: 2;
+        border-radius: 10px;
+        background-color: plum;
+      }
+    }
+  }
+  
+  .grid {
+    &-container {
+      display: grid;
+      column-gap: 50px;
+      row-gap: 50px;
+      grid-gap: 50px 100px;
+  
+      width: auto;
+      height: 40vh;
+      background-color: plum;
+    }
+  
+    &-item {
+      background-color: royalblue;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+// header { 
+//     @include darkBackground;
+
+//     .container {
+
+//         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png);
+//         background-position: center;
+//         background-repeat: no-repeat;
+//         background-size: cover;
+//         height: auto;
+//         position: fixed;
+//         left: 0;
+//         right: 0;
+//         top: 0;
+//         bottom: 0;
+//     display: flex;
+//     justify-content: space-around;
+    
+//     }
+    
+//     .navigation {
+    
+//         background-color: sandybrown;
+
+//     &-btn {
+//         border: green 10px double;
+
+//         &:hover {
+//             color: red;
+//         }
+//     &:focus {
+//         color: peru;
+//        }
+//     }
+
+// }
