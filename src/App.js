@@ -33,20 +33,17 @@ function App() {
             <div class="grid-item">Map = 1</div>
             {/* <div class='grid-item'>2</div>
             <div class='grid-item'>3</div>
-            <div class='grid-item'>4</div>
-            <div class='grid-item'>5</div>
-            <div class='grid-item'>6</div>
-            <div class='grid-item'>7</div>
-            <div class='grid-item'>8</div>
-            <div class='grid-item'>9</div> */}
+            */}
           </div>
         </section>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
 
-        <div style={{ backgroundColor: "lightcoral", height: "500px", }}   >
+        <div style={{ backgroundColor: "lightgreen", height: "500px", }}   >
 
-          
+      
+      
         <SimpleMap />
+        
         
         </div>
 
