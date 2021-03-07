@@ -1,14 +1,12 @@
-import React from 'react'
-// <AnyReactComponent
-//           lat= {locList.lat}
-//           lng={locList.lng}
-//           text={loc}
-//  />
+import React from "react";
 
+function LocMarker(props) {
+  return (
+    <div style={{ backgroundColor: "white", border: "solid 5px red"}}>
+      <h1>{props.text}</h1>{" "}
+    </div>
+  );
+}
 
-function LocMarker ( )    {
-    return ( 
-<h1> This is LokMark  %%%%%%%%%%%%%%%%%%%%%%%%</h1>
-)}
-
-export default LocMarker
+export default LocMarker;
+ 
