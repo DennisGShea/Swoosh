@@ -38,15 +38,15 @@ function App() {
         </section>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
 
-        <div style={{ backgroundColor: "lightgreen", height: "500px", }}   >
-
-      
-      
-        <SimpleMap />
-        
-        
+        <div
+          style={{ backgroundColor: "green", height: "500px", width: "1000px" }}
+        >
+          <h2>Swoosh</h2>
+          <button> lets begin </button>]
+          <div class="box5">
+            <SimpleMap />
+          </div>
         </div>
-
       </header>
       <footer>
         <h3>this is my footer</h3>
