@@ -1,5 +1,6 @@
 import "./App.css";
 import SimpleMap from "../src/components/SimpleMap";
+import Form2 from "./components/Form"
 
 function App() {
   return (
@@ -13,6 +14,10 @@ function App() {
           </button>
 
           <button className="navigation-btn" href="/css/">
+            View route
+          </button>
+
+          <button className="navigation-btn" href="/css/">
             Ride stats
           </button>
 
@@ -21,22 +26,13 @@ function App() {
           </button>
         </nav>
         <h2 style={{"text-align": "center", "color": "green"}}>Swoosh</h2>
-        
-        {/* <div className="container">
-          <div className="container-element__round">Route ONE </div>
-        </div> */}
-
-        {/* <section>
-          <div class="grid-container">
-            <div class="grid-item">Map = 1</div>
-          </div>
-        </section> */}
 
         <div
           style={{ backgroundColor: "lightgrey", height: "100%", width: "100%" }}
         >
           <div className="box 5">
-            <SimpleMap />
+            <Form2/>
+            {/* <SimpleMap /> */}
           </div>
         </div>
       </header>

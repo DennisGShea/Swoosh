@@ -37,7 +37,6 @@ function SimpleMap() {
   return (
    <div className = "box5" >
     <div style={{ height: "500px", width: "800px"}}>
-    {/* <h2>Swoosh</h2> */}
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyAquboocr5toIDwa677daa6O52jwysblng" }}
         defaultCenter={defaultProps.center}
@@ -46,6 +45,8 @@ function SimpleMap() {
 
         <LocMarker lat={locList.lat} lng={locList.lng} text={"A"} />
         <LocMarker lat={ 26.39154382847964} lng={-80.10902143305083} text={"B"} />
+        <LocMarker lat={ 26.267046971396073} lng={ -80.08372602942676} text={"C"} />
+
         {/* <
       Data.map(route => {
      return 
@@ -57,8 +58,11 @@ function SimpleMap() {
           footer area for map </h3>
       </footer>
     </div>
-      <h3>The name of the loc is: {loc} </h3>
-    
+      <ul>
+          <li>The loc is: {loc} </li>
+          <li>The loc is: {loc} </li>
+          <li>The loc is: {loc} </li>
+      </ul>
     </div>
   );
 }
