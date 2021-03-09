@@ -18,13 +18,14 @@
       
         const handleSubmit = (event) => {
           event.preventDefault();
-          console.log("showwww state",state);
+          console.log("show state",state); // fetch here ???
         };
       
         return (
           <div className="App">
             <form onSubmit={handleSubmit}>
-              <div className="form-control">
+              <h3>Enter Ride Location Coordinates: </h3>
+              {/* <div className="form-control">
                 <label>Email</label>
                 <input
                   type="text"
@@ -32,46 +33,56 @@
                   value={state.email}
                   onChange={handleInputChange}
                 />
-              </div>
+              </div> */}
 
           
-
-
-              <div className="form-control">
+               {/* <div className="form-control">
                 <label>Password</label>
                 <input
                   type="password"
                   name="password"
                   value={state.password}
                   onChange={handleInputChange}
-                />
-
-              <label>Lattitude</label>
+                /> */}
+         
+          <div className="form-control">
+              <label>Start-Lattitude</label>
                 <input    
-                  type="lattttt"
-                  name="lattttt"
-                  value={state.startLattitude}
+                  type="text"
+                  name="Start-Lat"
+                  value={state.startLat}
                   onChange={handleInputChange}
                 />
 
             <label>Start-Longitude</label>
                 <input    
-                  type="startLng"
+                  type="type"
                   name="startLng"
-                  value={state.lnggggg}
+                  value={state.startLng}
                   onChange={handleInputChange}
                 />
 
+            <label>Stop-Lattitude</label>
+                <input    
+                  type="text"
+                  name="stopLat"
+                  value={state.stopLat}
+                  onChange={handleInputChange}
+                />
+            
+
+              <label>Stop-Longitude</label>
+                <input    
+                  type="text"
+                  name="stopLng"
+                  value={state.lnggggg}
+                  onChange={handleInputChange}
+                />
               </div>
-
-
-
-             
-
 
               <div className="form-control">
                 <label></label>
-                <button type="submit">Loggggin</button>
+                <button type="submit">Submit</button>
               </div>
             </form>
           </div>
