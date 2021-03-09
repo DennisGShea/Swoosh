@@ -75,7 +75,7 @@
                 <input    
                   type="text"
                   name="stopLng"
-                  value={state.lnggggg}
+                  value={state.stopLng}
                   onChange={handleInputChange}
                 />
               </div>
