@@ -1,12 +1,26 @@
   import React, { useState } from 'react';
-  import ReactDOM from 'react-dom';
+  //import ReactDOM from 'react-dom';
   import "../../src/styles.css";
  
+  let aRoute = 
+  [{
+      stop: {
+        lng: -80.333,
+        lat: 26.333,
+      },
+      start: {
+        lat: 26.555,
+        lng: -80.555,
+      },
+      userid: "oierg340n5g5",
+      id: "99775533",
+    },
+  ];
+
   function Form (props) {
-  
         const [state, setState] = useState({
-          email: "",
-          password: ""
+        email: "",
+        password: ""
         });
       
         const handleInputChange = (event) => {
@@ -15,41 +29,26 @@
             [event.target.name]: event.target.value
           }));
         };
-      
+       
+        const API_URL = `http://localhost:5000/route/`
         const handleSubmit = (event) => {
           event.preventDefault();
-          console.log("show state",state); // fetch here ???
+
+          fetch(API_URL)
+          .then((res) => res.json())
+          .then((data) => console.log(aRoute,"route data", data))    
+          console.log("show state",state);
         };
       
         return (
           <div className="App">
             <form onSubmit={handleSubmit}>
-              <h3>Enter Ride Location Coordinates: </h3>
-              {/* <div className="form-control">
-                <label>Email</label>
-                <input
-                  type="text"
-                  name="email"
-                  value={state.email}
-                  onChange={handleInputChange}
-                />
-              </div> */}
-
-          
-               {/* <div className="form-control">
-                <label>Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  value={state.password}
-                  onChange={handleInputChange}
-                /> */}
-         
+           
           <div className="form-control">
               <label>Start-Lattitude</label>
                 <input    
                   type="text"
-                  name="Start-Lat"
+                  name="startLat"
                   value={state.startLat}
                   onChange={handleInputChange}
                 />
@@ -88,8 +87,5 @@
           </div>
         );
       }
-
-
-    
     
     export default Form
