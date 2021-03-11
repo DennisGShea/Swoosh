@@ -1,13 +1,12 @@
 import "./App.css";
 import SimpleMap from "../src/components/SimpleMap";
-import Form2 from "./components/Form"
+import Form from "./components/Form";
 
 function App() {
   return (
- 
     <div className="App">
       <header>
-      <title>CoderGuides</title>
+        <title>CoderGuides</title>
         <nav className="navigation">
           <button className="navigation-btn" href="/html/">
             Rider login
@@ -25,19 +24,21 @@ function App() {
             Ride History
           </button>
         </nav>
-        <h2 style={{"text-align": "center", "color": "green"}}>Swoosh</h2>
+        <h2 style={{ "text-align": "center", color: "green" }}>Swoosh</h2>
 
         <div
-          style={{ backgroundColor: "lightgrey", height: "100%", width: "100%" }}
+          style={{
+            backgroundColor: "lightgrey",
+            height: "100%",
+            width: "100%",
+          }}
         >
           <div className="box 5">
-            <Form2/>
-            {/* <SimpleMap /> */}
+            <Form />
+            <SimpleMap />
           </div>
         </div>
       </header>
-      
-      
     </div>
   );
 }

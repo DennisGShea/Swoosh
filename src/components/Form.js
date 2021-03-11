@@ -36,7 +36,7 @@
 
           fetch(API_URL)
           .then((res) => res.json())
-          .then((data) => console.log(aRoute,"route data", data))    
+          .then((data) => console.log("route data", data))    
           console.log("show state",state);
         };
       
