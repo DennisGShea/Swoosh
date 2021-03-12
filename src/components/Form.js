@@ -3,24 +3,24 @@
   import "../../src/styles.css";
  
   let aRoute = 
-  [{
+  {
       stop: {
         lng: -80.333,
         lat: 26.333,
       },
       start: {
         lat: 26.555,
-        lng: -80.555,
+        lng: -80.66666666666,
       },
       userid: "oierg340n5g5",
       id: "99775533",
-    },
-  ];
+    }
+  
 
   function Form (props) {
         const [state, setState] = useState({
-        email: "",
-        password: ""
+        // email:"",
+        // password:""
         });
       
         const handleInputChange = (event) => {
@@ -30,7 +30,7 @@
           }));
         };
        
-        const API_URL = `http://localhost:5000/route/`
+        const API_URL = `http://localhost:5000/addroute/`
         const handleSubmit = (event) => {
           event.preventDefault();
 
