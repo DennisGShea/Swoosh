@@ -8,7 +8,9 @@ Geocode.enableDebug();
 
 function SimpleMap() {
   const [loc, setLoc] = useState();
-  const [locList, setLocList] = useState({ lat: 26.36331, lng: -80.17535 });
+  // const [locList, setLocList] = useState({ lat: 26.36331, lng: -80.17535 });
+  //  26.44298077679164, -80.11426424500598  Mr Chen's
+  const [locList, setLocList] = useState({ lat: 26.44298077679164, lng: -80.11426424500598 });
   const [data, setData] = useState([]);
   const API_URL = `http://localhost:5000/route/`;
 
@@ -24,7 +26,7 @@ function SimpleMap() {
     Geocode.fromLatLng(locList.lat, locList.lng).then(
       (response) => {
         const address = response.results[0].formatted_address;
-        console.log(address, "we are biking in Boca now !!!");
+        console.log(address, "biking in Boca area !");
         setLoc(address);
       },
       (error) => {
@@ -65,14 +67,14 @@ function SimpleMap() {
                 <LocMarker
                   lat={route.start.lat}
                   lng={route.start.lng}
-                  text={"H"}
+                  text={"B"}
                   key={i}
                 />
 
                 <LocMarker
                   lat={route.stop.lat}
                   lng={route.stop.lng}
-                  text={"J"}
+                  text={"E"}
                   key={i}
                 />
               </>
@@ -80,8 +82,11 @@ function SimpleMap() {
           })}
 
           <LocMarker
-            lat={26.267046971396073}
-            lng={-80.08372602942676}
+          // mr chen's Del Ray
+          lat={26.44298077679164}  
+          lng={-80.11426424500598}
+          //  lat={26.267046971396073}  probably Nauty Dawg Light House Point
+          //  lng={-80.08372602942676}
             text={"z"}
           />
 
@@ -102,14 +107,12 @@ function SimpleMap() {
         <footer>
           <h3>
             <p>......</p>
-            footer area for map{" "}
+            google-maps-api{" "}
           </h3>
         </footer>
       </div>
       <ul>
-        <li>The loc is: {loc} </li>
-        {/* <li>The loc is: {loc} </li>
-        <li>The loc is: {loc} </li> */}
+        <li>Z: {loc} </li>
       </ul>
     </div>
   );

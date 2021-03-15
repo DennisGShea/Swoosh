@@ -8,12 +8,12 @@ function App() {
       <header>
         <title>CoderGuides</title>
         <nav className="navigation">
-          <button className="navigation-btn" href="/html/">
+          {/* <button className="navigation-btn" href="/html/">
             Rider login
-          </button>
+          </button> */}
 
           <button className="navigation-btn" href="/css/">
-            View route
+            Route Points Info
           </button>
 
           <button className="navigation-btn" href="/css/">

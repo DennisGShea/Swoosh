@@ -4,24 +4,38 @@ import "../../src/styles.css";
 const API_URLwGet = `http://localhost:5000/route/`;
 const API_URLwPost = `http://localhost:5000/addroute/`;
 
-let aRoute = {
-  start: {
-    lat: 26.555,
-    lng: -80.66666666666,
-  },
-  stop: {
-    lng: -80.333,
-    lat: 26.333,
-  },
-  userid: "oierg340n5g5",
-  id: "99775533",
-};
 
 function Form(props) {
   const [state, setState] = useState({
     // email:"",
     // password:""
   });
+
+  let aRoute = {
+    start: {
+      lat: 26.111,
+      lng: -80.222,
+    },
+    stop: {
+      lat: 26.333,
+      lng: -80.444,
+    },
+    userid: "dgs443525",
+    id: "30663066",
+  };
+  
+  let bRoute = {
+    start: {
+      lat: state.startLat,
+      lng: state.startLng,
+    },
+    stop: {
+      lat: state.stopLat,
+      lng: state.stopLng,
+    },
+    userid: "dgs123456",
+    id: "3035",
+  };
 
   useEffect(() => {
     fetch("http://localhost:5000/route/")
@@ -41,7 +55,7 @@ function Form(props) {
     fetch(API_URLwPost, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ aRoute }),
+      body: JSON.stringify({ bRoute }),
     })
       .then((res) => res.json())
       .catch((err) => console.log(err));
