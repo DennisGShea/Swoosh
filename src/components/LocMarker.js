@@ -6,10 +6,13 @@ function LocMarker(props) {
       style={{
         backgroundColor: "orange",
         border: "solid 3px red",
-        width: "10px",
+        borderRadius: "50%",
+        width: "8px",
+        height: "12px",
       }}
     >
       <h1>{props.text}</h1>
+     
     </div>
   );
 }

@@ -24,7 +24,7 @@ function App() {
             Ride History
           </button>
         </nav>
-        <h2 style={{ "text-align": "center", color: "green" }}>Swoosh</h2>
+        <h2 style={{ textAlign: "center", color: "green" }}>Swoosh</h2>
 
         <div
           style={{

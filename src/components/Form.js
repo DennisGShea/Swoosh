@@ -4,7 +4,6 @@ import "../../src/styles.css";
 const API_URLwGet = `http://localhost:5000/route/`;
 const API_URLwPost = `http://localhost:5000/addroute/`;
 
-
 function Form(props) {
   const [state, setState] = useState({
     // email:"",
@@ -23,7 +22,7 @@ function Form(props) {
     userid: "dgs443525",
     id: "30663066",
   };
-  
+
   let bRoute = {
     start: {
       lat: state.startLat,
@@ -38,9 +37,9 @@ function Form(props) {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/route/")
-      .then((res) => res.json())
-      .then((data) => console.log("route data", data));
+    // fetch("http://localhost:5000/route/")
+    //   .then((res) => res.json())
+      // .then((data) => console.log("route data", data));
   }, []);
 
   const handleInputChange = (event) => {
@@ -55,7 +54,17 @@ function Form(props) {
     fetch(API_URLwPost, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ bRoute }),
+      body: JSON.stringify({
+        start: {
+          lat: state.startLat,
+          lng: state.startLng,
+        },
+        stop: {
+          lat: state.stopLat,
+          lng: state.stopLng,
+        },
+        userid: "dgs123456"
+      }),
     })
       .then((res) => res.json())
       .catch((err) => console.log(err));
