@@ -10,8 +10,8 @@ function SimpleMap() {
   const [fbData, setFbData] = useState([]);
   const [routesData, setRoutesData] = useState([]);
 
-  let API_URL = `http://localhost:5000/route/`;
-  // let API_URL = `http://https://us-central1-swoosh-api.cloudfunctions.net/app:5000/route/`;
+  //let API_URL = `http://localhost:5000/route/`;
+  let API_URL = `https://swoosh-api.web.app/route/`;
 
   useEffect(() => {
     fetch(API_URL)
@@ -53,15 +53,20 @@ function SimpleMap() {
         </GoogleMapReact>
 
         <footer>
-          <h3>
-            <p>......</p>
-            google-maps-api
-          </h3>
+            <h3> <p>........</p> </h3>
+            
+            <ol>
+              {routesData && routesData.length > 0 &&
+                routesData.map((route, i) => <li key={i}>{route}</li>)}
+            </ol>
 
-          <ol>
-            {routesData && routesData.length > 0 &&
-              routesData.map((route, i) => <li key={i}>{route}</li>)}
-          </ol>
+         
+            <p>......</p>
+              
+           <p> 26.35817872513297, -80.21232710047386   </p>
+        
+
+         
         </footer>
       </div>
     </div>

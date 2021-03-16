@@ -1,40 +1,14 @@
 import React, { useState, useEffect } from "react";
 //import ReactDOM from 'react-dom';
 import "../../src/styles.css";
-const API_URLwGet = `http://localhost:5000/route/`;
-const API_URLwPost = `http://localhost:5000/addroute/`;
+
+const API_URLwPost = `https://swoosh-api.web.app/addroute/`;
 
 function Form(props) {
   const [state, setState] = useState({
     // email:"",
     // password:""
   });
-
-  let aRoute = {
-    start: {
-      lat: 26.43889301173374,
-      lng: -80.12386864649514,
-    },
-    stop: {
-      lat: 26.45414827578358,
-      lng: -80.2045014603517,
-    },
-    userid: "dgs12345",
-    id: "3066",
-  };
-
-  let bRoute = {
-    start: {
-      lat: state.startLat,
-      lng: state.startLng,
-    },
-    stop: {
-      lat: state.stopLat,
-      lng: state.stopLng,
-    },
-    userid: "dgs123456",
-    id: "3035",
-  };
 
   useEffect(() => {
     // fetch("http://localhost:5000/route/")
