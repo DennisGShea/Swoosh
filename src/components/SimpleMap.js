@@ -6,6 +6,22 @@ import Geocode from "react-geocode";
 Geocode.setApiKey("AIzaSyAquboocr5toIDwa677daa6O52jwysblng");
 Geocode.enableDebug();
 
+const Points = ({ fbData }) => {
+  if (!fbData) return null;
+  return fbData.map((route, i) => {
+    console.log("this is route", route);
+    return (
+      <>
+        <LocMarker
+          lat={route.start.lat}
+          lng={route.start.lng}
+          text={"just text"}
+        />
+      </>
+    );
+  });
+};
+
 function SimpleMap() {
   const [fbData, setFbData] = useState([]);
   const [routesData, setRoutesData] = useState([]);
@@ -18,30 +34,31 @@ function SimpleMap() {
       .then((data) => setFbData(data));
   }, []);
 
-useEffect(() =>  {
-if (fbData) {
-    fbData.map((route, i) => {
-    
-      Geocode.fromLatLng(route.start.lat, route.start.lng).then((response) => {
-        const routeAddress = response.results[0].formatted_address;
-        // console.log('route address here', routeAddress)
+  useEffect(() => {
+    if (fbData) {
+      fbData.map((route, i) => {
+        Geocode.fromLatLng(route.start.lat, route.start.lng).then(
+          (response) => {
+            const routeAddress = response.results[0].formatted_address;
+            // console.log('route address here', routeAddress)
 
-        return setRoutesData([...routesData, routeAddress]);
+            return setRoutesData([...routesData, routeAddress]);
+          }
+        );
       });
-    });
-  }
-},[fbData])
-  
+    }
+
+    console.log("fbData here", fbData);
+  }, [fbData]);
 
   console.log("this is fbdata", fbData);
-
 
   const defaultProps = {
     center: {
       lat: 26.363314,
       lng: -80.17535,
     },
-    zoom: 10,
+    zoom: 12,
   };
 
   return (
@@ -53,27 +70,26 @@ if (fbData) {
           defaultZoom={defaultProps.zoom}
         >
           {fbData.map((route, i) => {
+            console.log("this is route", route);
             return (
-              <>
-                <LocMarker
-                  lat={route.start.lat}
-                  lng={route.start.lng}
-                  text={i}
-                />
-
-                <LocMarker
-                  lat={route.stop.lat}
-                  lng={route.stop.lng}
-                  text={i + 100}
-                />
-              </>
+              <LocMarker
+                lat={route.start.lat}
+                lng={route.start.lng}
+                text={i}
+              />
             );
           })}
 
           {/* <LocMarker
-            lat={26.39154382847964}
-            lng={-80.10902143305083}
-            text={"B"}
+            lat={"26.39154382847964"}
+            lng={"-80.10902143305083"}
+            text={"W"}
+          />
+
+          <LocMarker
+            lat={26.45414827578358}
+            lng={-80.2045014603517}
+            text={"K"}
           /> */}
         </GoogleMapReact>
 
