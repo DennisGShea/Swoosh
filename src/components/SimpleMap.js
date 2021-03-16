@@ -5,53 +5,39 @@ import Geocode from "react-geocode";
 
 Geocode.setApiKey("AIzaSyAquboocr5toIDwa677daa6O52jwysblng");
 Geocode.enableDebug();
-
-const Points = ({ fbData }) => {
-  if (!fbData) return null;
-  return fbData.map((route, i) => {
-    console.log("this is route", route);
-    return (
-      <>
-        <LocMarker
-          lat={route.start.lat}
-          lng={route.start.lng}
-          text={"just text"}
-        />
-      </>
-    );
-  });
-};
+let routeAddresses = []
 
 function SimpleMap() {
   const [fbData, setFbData] = useState([]);
   const [routesData, setRoutesData] = useState([]);
 
-  const API_URL = `http://localhost:5000/route/`;
+  let API_URL = `http://localhost:5000/route/`;
+  // let API_URL = `http://https://us-central1-swoosh-api.cloudfunctions.net/app:5000/route/`;
 
   useEffect(() => {
     fetch(API_URL)
       .then((res) => res.json())
-      .then((data) => setFbData(data));
+      .then((data) => {
+        setFbData(data);
+      });
   }, []);
 
   useEffect(() => {
-    if (fbData) {
-      fbData.map((route, i) => {
-        Geocode.fromLatLng(route.start.lat, route.start.lng).then(
-          (response) => {
-            const routeAddress = response.results[0].formatted_address;
-            // console.log('route address here', routeAddress)
-
-            return setRoutesData([...routesData, routeAddress]);
-          }
-        );
-      });
-    }
-
-    console.log("fbData here", fbData);
+    fbData.forEach((route) => {
+      Geocode.fromLatLng(route.start.lat, route.start.lng)
+        .then((response) => {
+          const address = response && response.results[0].formatted_address
+          return address && address.length > 0 && routeAddresses.push(address);
+        })
+        .catch((err) => console.log(err));
+    })
   }, [fbData]);
 
-  console.log("this is fbdata", fbData);
+  useEffect(() => {
+    setRoutesData(routeAddresses);
+  }, [routesData])
+
+  console.log("routes data here", routesData);
 
   const defaultProps = {
     center: {
@@ -69,28 +55,9 @@ function SimpleMap() {
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
         >
-          {fbData.map((route, i) => {
-            console.log("this is route", route);
-            return (
-              <LocMarker
-                lat={route.start.lat}
-                lng={route.start.lng}
-                text={i}
-              />
-            );
-          })}
-
-          {/* <LocMarker
-            lat={"26.39154382847964"}
-            lng={"-80.10902143305083"}
-            text={"W"}
-          />
-
-          <LocMarker
-            lat={26.45414827578358}
-            lng={-80.2045014603517}
-            text={"K"}
-          /> */}
+          {fbData.map((route, i) => (
+            <LocMarker lat={route.start.lat} lng={route.start.lng} text={i} />
+          ))}
         </GoogleMapReact>
 
         <footer>
@@ -101,9 +68,7 @@ function SimpleMap() {
 
           <ul>
             {routesData &&
-              routesData.map((route, i) => {
-                return <li key={i}>{route}</li>;
-              })}
+              routesData.map((route, i) => <li key={i}>{route}</li>)}
           </ul>
         </footer>
       </div>

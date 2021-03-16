@@ -1,7 +1,6 @@
 import React from "react";
 
 function LocMarker(props) {
-  console.log(props)
   return (
     <div
       style={{

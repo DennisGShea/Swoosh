@@ -20,9 +20,6 @@ function App() {
             Ride stats
           </button>
 
-          <button className="navigation-btn" href="/css/">
-            Ride History
-          </button>
         </nav>
         <h2 style={{ textAlign: "center", color: "green" }}>Swoosh</h2>
 
