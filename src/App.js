@@ -25,8 +25,8 @@ function App() {
 
         <div
           style={{
-            backgroundColor: "lightgrey",
-            height: "100%",
+            backgroundColor: "#ace9b1",
+            height: "1400px",
             width: "100%",
           }}
         >

@@ -5,7 +5,6 @@ import Geocode from "react-geocode";
 
 Geocode.setApiKey("AIzaSyAquboocr5toIDwa677daa6O52jwysblng");
 Geocode.enableDebug();
-let routeAddresses = []
 
 function SimpleMap() {
   const [fbData, setFbData] = useState([]);
@@ -26,18 +25,11 @@ function SimpleMap() {
     fbData.forEach((route) => {
       Geocode.fromLatLng(route.start.lat, route.start.lng)
         .then((response) => {
-          const address = response && response.results[0].formatted_address
-          return address && address.length > 0 && routeAddresses.push(address);
+          return (response && (response.results[0].formatted_address).length > 0) && setRoutesData((add) => add.concat(response.results[0].formatted_address))
         })
         .catch((err) => console.log(err));
     })
   }, [fbData]);
-
-  useEffect(() => {
-    setRoutesData(routeAddresses);
-  }, [routesData])
-
-  console.log("routes data here", routesData);
 
   const defaultProps = {
     center: {
@@ -56,7 +48,7 @@ function SimpleMap() {
           defaultZoom={defaultProps.zoom}
         >
           {fbData.map((route, i) => (
-            <LocMarker lat={route.start.lat} lng={route.start.lng} text={i} />
+            <LocMarker lat={route.start.lat} lng={route.start.lng} text={i + 1} />
           ))}
         </GoogleMapReact>
 
@@ -66,10 +58,10 @@ function SimpleMap() {
             google-maps-api
           </h3>
 
-          <ul>
-            {routesData &&
+          <ol>
+            {routesData && routesData.length > 0 &&
               routesData.map((route, i) => <li key={i}>{route}</li>)}
-          </ul>
+          </ol>
         </footer>
       </div>
     </div>
