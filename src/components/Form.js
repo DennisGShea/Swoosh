@@ -48,7 +48,7 @@ function Form(props) {
     <div className="App">
       <form onSubmit={handleSubmit}>
         <div className="form-control">
-          <label>Start-Lattitude</label>
+          <label>Start-Latitude</label>
           <input
             type="text"
             name="startLat"
@@ -64,7 +64,7 @@ function Form(props) {
             onChange={handleInputChange}
           />
 
-          <label>Stop-Lattitude</label>
+          <label>Stop-Latitude</label>
           <input
             type="text"
             name="stopLat"
